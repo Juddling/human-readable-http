@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "DOM",
+            "ES2020"
+        ],
+        "target": "ESNext",
+        "outDir": "dist/"
+    },
+    "files": [
+        "src/main.ts"
+    ]
+}

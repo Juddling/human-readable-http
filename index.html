@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Readable HTTP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                <h2>Paste your HTTP response here:</h2>
+                <textarea name="response" id="response" cols="30" rows="20" class="form-control" spellcheck="false"></textarea>
+                <button id="parseButton" class="btn btn-primary">Make Readable!</button>
+                <button id="loadExample" class="btn btn-secondary">Example Response</button>
+
+                <h3>macOS: Copy headers to your clipboard and paste above:</h3>
+                <code>
+                    curl -I https://www.example.com | pbcopy
+                </code>
+            </div>
+            <div class="col">
+                <h2>Results:</h2>
+                <div id="results"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script id="exampleResponse" type="text/plain">HTTP/2 200
+date: Sat, 17 Jul 2021 02:17:46 GMT
+content-type: image/png
+content-length: 22456
+last-modified: Sat, 30 Mar 2019 14:19:42 GMT
+etag: "5c9f7afe-57b8"
+cache-control: max-age=14400
+cf-cache-status: HIT
+age: 7234
+accept-ranges: bytes
+expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+report-to: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s={REDACTED}"}],"group":"cf-nel","max_age":604800}
+nel: {"report_to":"cf-nel","max_age":604800}
+server: cloudflare
+cf-ray: 66fff9d2ae0afe70-SYD
+alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443"; ma=86400</script>
+    <script src="dist/main.js"></script>
+</body>
+</html>
