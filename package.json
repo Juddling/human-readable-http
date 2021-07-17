@@ -6,5 +6,8 @@
   "license": "MIT",
   "devDependencies": {
     "typescript": "^4.3.5"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html dist/index.html && tsc"
   }
 }
