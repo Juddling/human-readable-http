@@ -20,6 +20,7 @@ const headerToCategoryMap = new Map<string, CategoryType>([
     // content
     ["content-type", CategoryType.CONTENT],
     ["content-length", CategoryType.CONTENT],
+    ["content-encoding", CategoryType.CONTENT],
     // caching
     ["age", CategoryType.CACHING],
     ["cache-control", CategoryType.CACHING],
@@ -27,6 +28,7 @@ const headerToCategoryMap = new Map<string, CategoryType>([
     ["last-modified", CategoryType.CACHING],
     ["pragma", CategoryType.CACHING],
     ["expires", CategoryType.CACHING],
+    ["vary", CategoryType.CACHING],
     // cloudflare
     ["cf-ray", CategoryType.CDN],
     ["cf-cache-status", CategoryType.CDN],
