@@ -32,6 +32,14 @@ const headerToCategoryMap = new Map<string, CategoryType>([
     // cloudflare
     ["cf-ray", CategoryType.CDN],
     ["cf-cache-status", CategoryType.CDN],
+    ["cf-chl-bypass", CategoryType.CDN],
+    ["cf-request-id", CategoryType.CDN],
+    // security
+    ["x-content-type-options", CategoryType.SECURITY],
+    ["strict-transport-security", CategoryType.SECURITY],
+    ["expect-ct", CategoryType.SECURITY],
+    ["x-frame-options", CategoryType.SECURITY],
+    ["permissions-policy", CategoryType.SECURITY],
 ]);
 
 function categoriseHeader(headerName: string): CategoryType {
