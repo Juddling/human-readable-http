@@ -112,7 +112,7 @@ function parse(response: string): Category[] {
 // DOM stuff
 const parseButton = document.getElementById('parseButton');
 const responseTextarea = document.getElementById('response') as HTMLTextAreaElement;
-const exampleResponseElement = document.getElementById('exampleResponse') as HTMLScriptElement;
+const exampleResponseElement = document.getElementById('exampleResponse') as HTMLDivElement;
 const results = document.getElementById('results');
 
 function renderReadableHeaders(headers: ReadableHeader[]): string {
@@ -142,6 +142,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         renderResults(readableResult);
     });
     document.getElementById('loadExample').addEventListener('click', () => {
-        responseTextarea.value = exampleResponseElement.text;
+        responseTextarea.value = exampleResponseElement.textContent;
     });
 });
