@@ -116,11 +116,14 @@ const exampleResponseElement = document.getElementById('exampleResponse') as HTM
 const results = document.getElementById('results');
 
 function renderReadableHeaders(headers: ReadableHeader[]): string {
-    let html = '<ul>';
+    let html = '<table class="table table-borderless">';
     for (const header of headers) {
-        html += `<li>${header.name}: ${header.value}</li>`;
+        html += `<tr>`;
+        html += `<td class="header-name">${header.name}</td>`;
+        html += `<td class="header-value"><div>${header.value}</div></td>`;
+        html += `</tr>`;
     }
-    html += '</ul>';
+    html += '</table>';
     return html;
 }
 
