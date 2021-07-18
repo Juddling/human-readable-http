@@ -43,7 +43,7 @@ const headerToCategoryMap = new Map<string, CategoryType>([
 ]);
 
 function categoriseHeader(headerName: string): CategoryType {
-    const category = headerToCategoryMap.get(headerName);
+    const category = headerToCategoryMap.get(headerName.toLowerCase());
     return category != null ? category : CategoryType.MISC;
 }
 
