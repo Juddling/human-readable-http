@@ -12,7 +12,7 @@
     <main style="margin-top: 3em">
         <div class="container">
             <div class="row align-items-start">
-                <div class="col">
+                <div class="col-lg-6">
                     <h2>Paste your HTTP response here:</h2>
                     <textarea name="response" id="response" cols="30" rows="20" class="form-control"
                         spellcheck="false"></textarea>
@@ -26,15 +26,16 @@
                         curl -I https://www.example.com | pbcopy
                     </code>
                 </div>
-                <div class="col">
+                <div class="col-lg-6">
                     <h2>Results:</h2>
-                    <div id="results">
+                    <div id="results" style="overflow-wrap: break-word;">
                         <p>Paste HTTP responses in the box to the left to:</p>
                         <ul>
                             <li>Categorise headers, e.g. Caching, CORS, Security</li>
                             <li>Parse into readable values, e.g. <code>content-length: 17408</code> -> <code>content-length: 17 KB</code></li>
                             <li>De-emphasize legacy headers e.g. pragma, expires. (Coming soon)</li>
                         </ul>
+                        <p>The data you paste into this tool never leaves your browser. No network calls are made.</p>
                     </div>
                 </div>
             </div>
