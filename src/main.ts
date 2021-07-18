@@ -8,6 +8,11 @@ type ReadableHeader = {
     value: string,
 };
 
+type ReadableResponse = {
+    categories: Category[],
+    statusLine: string,
+};
+
 enum CategoryType {
     CONTENT,
     CACHING,
@@ -84,7 +89,17 @@ function readableHeaderValue(headerName: string, value: string) {
     return value;
 }
 
-function parse(response: string): Category[] {
+function parseStatusLine(response: string): string {
+    const statusLineRegex = /^http\/(?<httpVersion>.*)\s(?<statusCode>[0-9]{3})(\s(?<statusText>[a-z ]+))?$/im;
+    const match = response.match(statusLineRegex);
+    if (!match) {
+        return '';
+    }
+    return `${match.groups['statusCode']} ${match.groups['statusText'] ?? ''}`;
+}
+
+function parse(response: string): ReadableResponse {
+    const statusLine = parseStatusLine(response);
     const headerPairs = /(?<name>[A-Za-z-]+):\s?(?<value>(.+))$/gm;
     const headerMatches = response.matchAll(headerPairs);
     const categorisedResponse: Map<CategoryType, Category> = new Map();
@@ -106,7 +121,10 @@ function parse(response: string): Category[] {
             }
         }
     }
-    return [...categorisedResponse.values()];
+    return {
+        categories: [...categorisedResponse.values()],
+        statusLine,
+    };
 }
 
 // DOM stuff
@@ -127,10 +145,10 @@ function renderReadableHeaders(headers: ReadableHeader[]): string {
     return html;
 }
 
-function renderResults(categories: Category[]) {
-    let html = '';
-    for (const category of categories) {
-        html += `<h3>${category.name}</h3>`;
+function renderResults(readableResponse: ReadableResponse) {
+    let html = `<h3>${readableResponse.statusLine}</h3>`;
+    for (const category of readableResponse.categories) {
+        html += `<h4>${category.name}</h4>`;
         html += renderReadableHeaders(category.headers);
     }
     results.innerHTML = html;
