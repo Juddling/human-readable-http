@@ -39,6 +39,8 @@ const headerToCategoryMap = new Map<string, CategoryType>([
     ["cf-cache-status", CategoryType.CDN],
     ["cf-chl-bypass", CategoryType.CDN],
     ["cf-request-id", CategoryType.CDN],
+    ["cf-bgj", CategoryType.CDN],
+    ["cf-polished", CategoryType.CDN],
     // security
     ["x-content-type-options", CategoryType.SECURITY],
     ["strict-transport-security", CategoryType.SECURITY],
